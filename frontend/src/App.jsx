@@ -21,6 +21,7 @@ function App() {
   return (
     <>
       <h1>Hello, How are you ravi. {JSON.stringify(data)} </h1>
+      <p>Kya aapne aaj reel dekhi.</p>
     </>
   )
 }
