@@ -10,7 +10,9 @@ require('dotenv').config();
 const app = express();4
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: "https://veltrix-platform.onrender.com" }));
+app.use(cors({
+  origin: ["http://localhost:5173", "https://veltrix-platform.onrender.com"]
+}));
 
 app.use("/", (req, res) => {
     res.json({ name: "Hello, bro" })

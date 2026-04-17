@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+// const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [data, setData] = useState(null);
   useEffect(() => {
-    const fetchData = async () => {
-      
-      try {
-        let response = await fetch("https://veltrix-platfo.onrender.com");
-        let result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+  const fetchData = async () => {
+    try {
+      let response = await fetch(`${BASE_URL}/`);
+      let result = await response.json();
+      setData(result);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
+  };
 
-    fetchData();
-  }, [])
+  fetchData();
+}, []);
   console.log(data);
   return (
     <>
