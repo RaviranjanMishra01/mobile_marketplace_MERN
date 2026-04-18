@@ -1,4 +1,4 @@
-#   3. BACKEND (PRODUCTION LEVEL STRUCTURE)
+#   1. BACKEND STRUCTURE
 
 ```js
 backend/
@@ -93,7 +93,7 @@ backend/
 ```
 
 
-# ⚡ 4. FRONTEND (SCALABLE FEATURE-BASED STRUCTURE)
+# ⚡ 2. FRONTEND STRUCTURE
 ```js
 frontend/
 │
