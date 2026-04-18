@@ -1,30 +1,28 @@
 // External packages
-const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
-
 require('dotenv').config();
 
-// Internal packages
+// Import database connection
+const { default: db_connect } = require('./src/config/db');
 
-const app = express();4
+const app = express(); // create app
+
+// Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: ["http://localhost:5173", "https://veltrix-platform.onrender.com"]
-}));
 
+app.use(cors({ origin: ["http://localhost:5173", "https://veltrix-platform.onrender.com"] }));
+
+// Routes
 app.use("/", (req, res) => {
-    res.json({ name: "Hello, bro" })
-})
+    res.json({ name: "Hello, bro" });
+});
 
-mongoose.connect(process.env.DB_URL)
-    .then(() => {
-        console.log("Database is successfully connected 😎");
-        app.listen(process.env.PORT, () => {
-            console.log(`Server is running on port http://localhost:${process.env.PORT}`);
-        })
-    })
-    .catch(err => {
-        console.log('Error while connecting to database', err);
-    })
+
+
+// Connect database
+db_connect();
+app.listen(process.env.PORT, () => {
+    console.log(`Server running at http://localhost:${process.env.PORT}`);
+});
